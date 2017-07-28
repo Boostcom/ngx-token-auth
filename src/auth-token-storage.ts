@@ -39,8 +39,9 @@ export class AuthTokenStorage {
     AuthTokenStorage.AUTH_KEYS.forEach((key) => localStorage.setItem(key, this.authData[key]));
   }
 
-  public purgeStorage(): void {
+  public purge(): void {
     AuthTokenStorage.AUTH_KEYS.forEach((key) => localStorage.removeItem(key));
+    this.authData = null;
   }
 
   public isAuthDataValid(authData: AuthData): boolean {

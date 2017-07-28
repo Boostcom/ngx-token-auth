@@ -1,35 +1,23 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SampleComponent } from './sample.component';
-import { SampleDirective } from './sample.directive';
-import { SamplePipe } from './sample.pipe';
-import { SampleService } from './sample.service';
+import { TokenAuthService } from './token-auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { TokenAuthInterceptorService } from './token-auth-interceptor.service';
+import { AuthTokenStorage } from './auth-token-storage';
 
-export * from './sample.component';
-export * from './sample.directive';
-export * from './sample.pipe';
-export * from './sample.service';
+export * from './token-auth.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
-  declarations: [
-    SampleComponent,
-    SampleDirective,
-    SamplePipe
-  ],
-  exports: [
-    SampleComponent,
-    SampleDirective,
-    SamplePipe
-  ]
 })
-export class SampleModule {
+export class TokenAuthModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SampleModule,
-      providers: [SampleService]
+      ngModule: TokenAuthModule,
+      providers: [TokenAuthService, TokenAuthInterceptorService, AuthTokenStorage]
     };
   }
 }

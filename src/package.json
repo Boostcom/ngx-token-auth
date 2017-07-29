@@ -19,7 +19,7 @@
   "module": "ngx-token-auth.js",
   "typings": "ngx-token-auth.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
+    "@angular/core": "^4.3.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   }

@@ -9,7 +9,7 @@ export interface AuthData {
 }
 
 @Injectable()
-export class AuthTokenStorage {
+export class TokenStorageService {
   public static readonly AUTH_KEYS = ['accessToken', 'client', 'expiry', 'tokenType', 'uid'];
   public static readonly AUTH_HEADERS_MAPPING = { accessToken: 'access-token', tokenType: 'token-type' };
   public authData: AuthData;
@@ -19,8 +19,8 @@ export class AuthTokenStorage {
 
     const authHeaders = {};
 
-    AuthTokenStorage.AUTH_KEYS.forEach((key) => {
-      authHeaders[AuthTokenStorage.AUTH_HEADERS_MAPPING[key] || key] = this.authData[key];
+    TokenStorageService.AUTH_KEYS.forEach((key) => {
+      authHeaders[TokenStorageService.AUTH_HEADERS_MAPPING[key] || key] = this.authData[key];
     });
 
     return authHeaders;
@@ -36,16 +36,16 @@ export class AuthTokenStorage {
   }
 
   public saveCurrentAuthData(): void {
-    AuthTokenStorage.AUTH_KEYS.forEach((key) => localStorage.setItem(key, this.authData[key]));
+    TokenStorageService.AUTH_KEYS.forEach((key) => localStorage.setItem(key, this.authData[key]));
   }
 
   public purge(): void {
-    AuthTokenStorage.AUTH_KEYS.forEach((key) => localStorage.removeItem(key));
+    TokenStorageService.AUTH_KEYS.forEach((key) => localStorage.removeItem(key));
     this.authData = null;
   }
 
   public isAuthDataValid(authData: AuthData): boolean {
-    if (!AuthTokenStorage.AUTH_KEYS.every((key) => authData[key] != null)) { return false; }
+    if (!TokenStorageService.AUTH_KEYS.every((key) => authData[key] != null)) { return false; }
     if (this.authData == null) { return true; }
 
     return authData.expiry >= this.authData.expiry;
@@ -58,7 +58,7 @@ export class AuthTokenStorage {
 
   private loadAuthDataFromStorage() {
     const authData: AuthData = {};
-    AuthTokenStorage.AUTH_KEYS.forEach((key) => authData[key] = localStorage.getItem(key));
+    TokenStorageService.AUTH_KEYS.forEach((key) => authData[key] = localStorage.getItem(key));
 
     this.authData = authData;
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthTokenStorage } from './auth-token-storage';
+import { TokenStorageService } from './token-storage.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ParamMap } from '@angular/router';
@@ -10,18 +10,69 @@ import 'rxjs/add/operator/catch';
 export class TokenAuthService {
   private currentUser: any;
 
-  constructor(private http: HttpClient, private authTokenStorage: AuthTokenStorage) {}
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
 
   /**
-   * Initiate sign in using OAuth provider.
-   * @param {string} provider - identifier of configured OAuth provider
+   * Sign in using login data
+   * @returns {Observable<any>}
    */
-  public signInWithOAuth(provider: string) {
-
+  public signIn(): Observable<any> {
+    return null;
   }
 
   /**
-   * Validate correctness and validity of token.
+   * Register new account
+   * @returns {Observable<any>}
+   */
+  public register(): Observable<any> {
+    return null;
+  }
+
+  /**
+   * Unregister (delete) current user
+   * @returns {Observable<any>}
+   */
+  public unregister(): Observable<any> {
+    return null;
+  }
+
+  /**
+   * Updates current user password
+   * @returns {Observable<any>}
+   */
+  public updatePassword(): Observable<any> {
+    return null;
+  }
+
+  /**
+   * Initiate password reset for user with given email
+   * @returns {Observable<any>}
+   */
+  public resetPassword(): Observable<any> {
+    return null;
+  }
+
+  /**
+   * Initiate sign in using OAuth provider
+   * @param {string} provider - identifier of configured OAuth provider
+   */
+  public signInWithOAuth(provider: string): Observable<any> {
+    return null;
+  }
+
+  /**
+   * Sign out current user
+   * @returns {Observable<any>}
+   */
+  public signOut(): Observable<any> {
+    this.tokenStorage.purge();
+    this.currentUser = null;
+
+    return this.http.delete('');
+  }
+
+  /**
+   * Validate correctness and validity of token
    * @returns {Observable<any>}
    */
   public validateToken(): Observable<any> {
@@ -34,20 +85,17 @@ export class TokenAuthService {
       })
   }
 
+  /**
+   * Process params after redirection from OAuth
+   * @param {ParamMap} queryParams - route query params
+   */
   public processOAuthParams(queryParams: ParamMap) {
-    this.authTokenStorage.loadAuthData({
+    this.tokenStorage.loadAuthData({
       accessToken: queryParams.get('token') || queryParams.get('auth_token'),
       client: queryParams.get('client_id'),
       expiry: queryParams.get('expiry'),
       tokenType: 'Bearer',
       uid: queryParams.get('uid')
     });
-  }
-
-  public signOut(): Observable<any> {
-    this.authTokenStorage.purge();
-    this.currentUser = null;
-
-    return this.http.delete('');
   }
 }

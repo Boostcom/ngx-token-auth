@@ -5,15 +5,15 @@ import { Observable } from 'rxjs/Observable';
 import { ParamMap } from '@angular/router';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { CONFIG_TOKEN } from './tokens';
-import { TokenAuthConfig } from './token-auth-config';
+import 'rxjs/add/observable/throw';
+import { TokenAuthConfigService } from './token-auth-config.service';
 
 @Injectable()
 export class TokenAuthService {
   private currentUser: any;
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService,
-              @Inject(CONFIG_TOKEN) private config: TokenAuthConfig) {}
+              private config: TokenAuthConfigService) {}
 
   /**
    * Sign in using login data
@@ -70,7 +70,7 @@ export class TokenAuthService {
     this.tokenStorage.purge();
     this.currentUser = null;
 
-    return this.http.delete('');
+    return this.http.delete(`${this.config.apiHost}/${this.config.signOutPath}`);
   }
 
   /**
@@ -78,7 +78,7 @@ export class TokenAuthService {
    * @returns {Observable<any>}
    */
   public validateToken(): Observable<any> {
-    return this.http.get('')
+    return this.http.get(`${this.config.apiHost}/${this.config.validateTokenPath}`)
       .do((json) => this.currentUser = json['data'])
       .catch((error: HttpErrorResponse) => {
         if (error.status === 401) { this.signOut(); }

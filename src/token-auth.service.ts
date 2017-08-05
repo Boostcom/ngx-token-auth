@@ -1,16 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { TokenStorageService } from './token-storage.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ParamMap } from '@angular/router';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { CONFIG_TOKEN } from './tokens';
+import { TokenAuthConfig } from './token-auth-config';
 
 @Injectable()
 export class TokenAuthService {
   private currentUser: any;
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService,
+              @Inject(CONFIG_TOKEN) private config: TokenAuthConfig) {}
 
   /**
    * Sign in using login data
@@ -54,10 +57,9 @@ export class TokenAuthService {
 
   /**
    * Initiate sign in using OAuth provider
-   * @param {string} provider - identifier of configured OAuth provider
    */
-  public signInWithOAuth(provider: string): Observable<any> {
-    return null;
+  public signInWithOAuth(provider: string): void {
+    window.location.href = this.oAuthPathBuilder(provider);
   }
 
   /**
@@ -97,5 +99,11 @@ export class TokenAuthService {
       tokenType: 'Bearer',
       uid: queryParams.get('uid')
     });
+  }
+
+  private oAuthPathBuilder(provider: string): string {
+    return `${this.config.oAuthBase}/${this.config.oAuthApiPath}/${provider}`
+      + `?omniauth_window_type=${this.config.oAuthType}`
+      + `&auth_origin_url=${encodeURIComponent(this.config.oAuthCallbackUrl)}`;
   }
 }

@@ -81,6 +81,9 @@
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
+                                    <a href="../injectables/TokenAuthConfigService.html" >TokenAuthConfigService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/TokenAuthInterceptorService.html" >TokenAuthInterceptorService</a>
                                 </li>
                                 <li class="link">
@@ -187,6 +190,9 @@
                                <ul class="links collapse "
                                        id="injectables-links"
                    >
+                                       <li class="link">
+                                           <a href="../injectables/TokenAuthConfigService.html" >TokenAuthConfigService</a>
+                                       </li>
                                        <li class="link">
                                            <a href="../injectables/TokenAuthInterceptorService.html" >TokenAuthInterceptorService</a>
                                        </li>
@@ -343,14 +349,16 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { NgModule, ModuleWithProviders } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { NgModule, ModuleWithProviders, Provider } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { TokenAuthService } from &#x27;./token-auth.service&#x27;;
 import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { TokenAuthInterceptorService } from &#x27;./token-auth-interceptor.service&#x27;;
 import { TokenStorageService } from &#x27;./token-storage.service&#x27;;
+import { TokenAuthConfigService } from &#x27;./token-auth-config.service&#x27;;
 
 export * from &#x27;./token-auth.service&#x27;;
+export * from &#x27;./token-auth-config.service&#x27;;
 
 @NgModule({
   imports: [
@@ -359,10 +367,15 @@ export * from &#x27;./token-auth.service&#x27;;
   ],
 })
 export class TokenAuthModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(tokenAuthConfigService: Provider): ModuleWithProviders {
     return {
       ngModule: TokenAuthModule,
-      providers: [TokenAuthService, TokenAuthInterceptorService, TokenStorageService]
+      providers: [
+        TokenAuthService,
+        TokenAuthInterceptorService,
+        TokenStorageService,
+        tokenAuthConfigService || { provide: TokenAuthConfigService, useClass: TokenAuthConfigService }
+      ]
     };
   }
 }

@@ -81,7 +81,7 @@
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
-                                    <a href="../injectables/TokenAuthConfigService.html" >TokenAuthConfigService</a>
+                                    <a href="../injectables/TokenAuthConfigService.html"  data-type="entity-link" class="active" >TokenAuthConfigService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/TokenAuthInterceptorService.html" >TokenAuthInterceptorService</a>
@@ -90,7 +90,7 @@
                                     <a href="../injectables/TokenAuthService.html" >TokenAuthService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../injectables/TokenStorageService.html"  data-type="entity-link" class="active" >TokenStorageService</a>
+                                    <a href="../injectables/TokenStorageService.html" >TokenStorageService</a>
                                 </li>
                         </ul>
                     </li>
@@ -191,7 +191,7 @@
                                        id="injectables-links"
                    >
                                        <li class="link">
-                                           <a href="../injectables/TokenAuthConfigService.html" >TokenAuthConfigService</a>
+                                           <a href="../injectables/TokenAuthConfigService.html"  data-type="entity-link" class="active" >TokenAuthConfigService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/TokenAuthInterceptorService.html" >TokenAuthInterceptorService</a>
@@ -200,7 +200,7 @@
                                            <a href="../injectables/TokenAuthService.html" >TokenAuthService</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../injectables/TokenStorageService.html"  data-type="entity-link" class="active" >TokenStorageService</a>
+                                           <a href="../injectables/TokenStorageService.html" >TokenStorageService</a>
                                        </li>
                                </ul>
                            </li>
@@ -244,7 +244,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>TokenStorageService</li>
+  <li>TokenAuthConfigService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -264,232 +264,29 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/token-storage.service.ts</code>
+            <code>src/token-auth-config.service.ts</code>
         </p>
 
 
-
             <section>
-                
-                    <h3 id="methods">
-                        Methods
-                    </h3>
+                <h3 id="constructor">Constructor</h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> getCurrentAuthHeaders</b>
+                                    <code>constructor(configuration: <a href="../injectables/TokenAuthConfigService.html">TokenAuthConfigService</a>)</code>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>getCurrentAuthHeaders()</code>
-                                </td>
-                            </tr>
-            
-            
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/token-storage.service.ts:17</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/token-auth-config.service.ts:29</a></div>
                                         </td>
                                     </tr>
             
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> loadAuthData</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>loadAuthData(authData: <a href="../interfaces/AuthData.html">AuthData</a>)</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/token-storage.service.ts:29</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>void</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> saveCurrentAuthData</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>saveCurrentAuthData()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/token-storage.service.ts:38</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>void</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> purge</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>purge()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/token-storage.service.ts:42</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>void</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> isAuthDataValid</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>isAuthDataValid(authData: <a href="../interfaces/AuthData.html">AuthData</a>)</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/token-storage.service.ts:47</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>boolean</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Private</span> loadAuthDataFromParam</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play lock"></span>
-                                    <code>loadAuthDataFromParam(authData: <a href="../interfaces/AuthData.html">AuthData</a>)</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/token-storage.service.ts:54</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>void</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Private</span> loadAuthDataFromStorage</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play lock"></span>
-                                    <code>loadAuthDataFromStorage()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/token-storage.service.ts:59</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>void</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
             </section>
+
 
             <section>
                 
@@ -500,64 +297,309 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> AUTH_HEADERS_MAPPING</b>
+                                    <b><span class="modifier">Public</span> apiBasePath</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>AUTH_HEADERS_MAPPING:     <code></code>
-            </bcode>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/token-storage.service.ts:14</a></div>
-                                        </td>
-                                    </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> AUTH_KEYS</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>AUTH_KEYS:     <code></code>
-            </bcode>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/token-storage.service.ts:13</a></div>
-                                        </td>
-                                    </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> authData</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>authData:     <code><a href="../interfaces/AuthData.html" target="_self" >AuthData</a></code>
+                                    <span class="modifier-icon fa fa-"></span><code>apiBasePath:     <code></code>
             </bcode>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="../interfaces/AuthData.html" target="_self" >AuthData</a></code>
-            
+                                        <i>Default value : </i><code>api/auth</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/token-storage.service.ts:15</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/token-auth-config.service.ts:17</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> apiHost</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>apiHost:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/token-auth-config.service.ts:16</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> deletePath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>deletePath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/token-auth-config.service.ts:22</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> oAuthApiPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>oAuthApiPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>api</code>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/token-auth-config.service.ts:14</a></div>
+                                        </td>
+                                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Path for OAuth mount.</p>
+            </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                  <div class="io-description">
+                                  </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> oAuthBase</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>oAuthBase:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/token-auth-config.service.ts:9</a></div>
+                                        </td>
+                                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Path used as host for redirection.</p>
+            </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                  <div class="io-description">
+                                  </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> oAuthCallbackUrl</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>oAuthCallbackUrl:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/token-auth-config.service.ts:15</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> oAuthType</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>oAuthType:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>sameWindow</code>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/token-auth-config.service.ts:29</a></div>
+                                        </td>
+                                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Only sameWindow is supported currently.</p>
+            </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                  <div class="io-description">
+                                  </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> registerPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>registerPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/token-auth-config.service.ts:21</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> resetPasswordPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>resetPasswordPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/token-auth-config.service.ts:24</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> signInPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>signInPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/token-auth-config.service.ts:19</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> signOutPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>signOutPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/token-auth-config.service.ts:20</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> updatePasswordPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>updatePasswordPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/token-auth-config.service.ts:23</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> validateTokenPath</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>validateTokenPath:     <code></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/token-auth-config.service.ts:18</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -569,67 +611,38 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
-export interface AuthData {
-  accessToken?: string;
-  client?: string;
-  expiry?: string;
-  tokenType?: string;
-  uid?: string;
-}
-
 @Injectable()
-export class TokenStorageService {
-  public static readonly AUTH_KEYS &#x3D; [&#x27;accessToken&#x27;, &#x27;client&#x27;, &#x27;expiry&#x27;, &#x27;tokenType&#x27;, &#x27;uid&#x27;];
-  public static readonly AUTH_HEADERS_MAPPING &#x3D; { accessToken: &#x27;access-token&#x27;, tokenType: &#x27;token-type&#x27; };
-  public authData: AuthData;
+export class TokenAuthConfigService {
+  /**
+   * Path used as host for redirection.
+   * @type {string}
+   */
+  public oAuthBase? &#x3D; window.location.origin;
+  /**
+   * Path for OAuth mount.
+   * @type {string}
+   */
+  public oAuthApiPath? &#x3D; &#x27;api&#x27;;
+  public oAuthCallbackUrl? &#x3D; &#x60;${this.oAuthBase}/callback&#x60;;
+  public apiHost? &#x3D; window.location.origin;
+  public apiBasePath? &#x3D; &#x27;api/auth&#x27;;
+  public validateTokenPath? &#x3D; &#x60;${this.apiBasePath}/validate_token&#x60;;
+  public signInPath? &#x3D; &#x60;${this.apiBasePath}/sign_in&#x60;;
+  public signOutPath? &#x3D; &#x60;${this.apiBasePath}/sign_out&#x60;;
+  public registerPath? &#x3D; &#x60;${this.apiBasePath}&#x60;;
+  public deletePath? &#x3D; &#x60;${this.apiBasePath}&#x60;;
+  public updatePasswordPath? &#x3D; &#x60;${this.apiBasePath}&#x60;;
+  public resetPasswordPath? &#x3D; &#x60;${this.apiBasePath}/password&#x60;;
+  /**
+   * Only sameWindow is supported currently.
+   * @type {string}
+   */
+  public oAuthType?: &#x27;sameWindow&#x27; | &#x27;newWindow&#x27; &#x3D; &#x27;sameWindow&#x27;;
 
-  public getCurrentAuthHeaders(): { [name: string]: string } {
-    if (!this.authData) { return null; }
+  constructor(configuration?: TokenAuthConfigService) {
+    if (!configuration) { return; }
 
-    const authHeaders &#x3D; {};
-
-    TokenStorageService.AUTH_KEYS.forEach((key) &#x3D;&gt; {
-      authHeaders[TokenStorageService.AUTH_HEADERS_MAPPING[key] || key] &#x3D; this.authData[key];
-    });
-
-    return authHeaders;
-  }
-
-  public loadAuthData(authData?: AuthData): void {
-    if (authData) {
-      if (this.isAuthDataValid(authData)) { this.loadAuthDataFromParam(authData); }
-      return;
-    }
-
-    this.loadAuthDataFromStorage();
-  }
-
-  public saveCurrentAuthData(): void {
-    TokenStorageService.AUTH_KEYS.forEach((key) &#x3D;&gt; localStorage.setItem(key, this.authData[key]));
-  }
-
-  public purge(): void {
-    TokenStorageService.AUTH_KEYS.forEach((key) &#x3D;&gt; localStorage.removeItem(key));
-    this.authData &#x3D; null;
-  }
-
-  public isAuthDataValid(authData: AuthData): boolean {
-    if (!TokenStorageService.AUTH_KEYS.every((key) &#x3D;&gt; authData[key] !&#x3D; null)) { return false; }
-    if (this.authData &#x3D;&#x3D; null) { return true; }
-
-    return authData.expiry &gt;&#x3D; this.authData.expiry;
-  }
-
-  private loadAuthDataFromParam(authData: AuthData) {
-    this.authData &#x3D; authData;
-    this.saveCurrentAuthData();
-  }
-
-  private loadAuthDataFromStorage() {
-    const authData: AuthData &#x3D; {};
-    TokenStorageService.AUTH_KEYS.forEach((key) &#x3D;&gt; authData[key] &#x3D; localStorage.getItem(key));
-
-    this.authData &#x3D; authData;
+    Object.keys(configuration).forEach((paramKey) &#x3D;&gt; this[paramKey] &#x3D; configuration[paramKey]);
   }
 }
 </code></pre>

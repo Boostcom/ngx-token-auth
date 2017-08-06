@@ -14,6 +14,10 @@ export class TokenStorageService {
   public static readonly AUTH_HEADERS_MAPPING = { accessToken: 'access-token', tokenType: 'token-type' };
   public authData: AuthData;
 
+  constructor() {
+    this.loadAuthData();
+  }
+
   public getCurrentAuthHeaders(): { [name: string]: string } {
     if (!this.authData) { return null; }
 
@@ -59,6 +63,8 @@ export class TokenStorageService {
   private loadAuthDataFromStorage() {
     const authData: AuthData = {};
     TokenStorageService.AUTH_KEYS.forEach((key) => authData[key] = localStorage.getItem(key));
+
+    if (!authData || !this.isAuthDataValid(authData)) { return; }
 
     this.authData = authData;
   }

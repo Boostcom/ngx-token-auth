@@ -11,7 +11,7 @@ export class TokenAuthConfigService {
    * Path for OAuth mount.
    * @type {string}
    */
-  public oAuthApiPath? = 'api';
+  public oAuthApiPath? = 'api/auth';
   public oAuthCallbackUrl? = `${this.oAuthBase}/callback`;
   public apiHost? = window.location.origin;
   public apiBasePath? = 'api/auth';

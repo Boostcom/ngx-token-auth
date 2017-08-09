@@ -6,14 +6,14 @@ import { ParamMap } from '@angular/router';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { TokenAuthConfigService } from './token-auth-config.service';
+import { TokenAuthConfig } from './token-auth-config.abstract';
 
 @Injectable()
 export class TokenAuthService {
   private currentUser: any;
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService,
-              private config: TokenAuthConfigService) {}
+              private config: TokenAuthConfig) {}
 
   /**
    * Sign in using login data

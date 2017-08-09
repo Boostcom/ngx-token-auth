@@ -3,7 +3,7 @@ import { TokenAuthConfig } from './token-auth-config.abstract';
 
 @Injectable()
 export class TokenAuthConfigService extends TokenAuthConfig {
-  constructor(configuration?: TokenAuthConfigService) {
+  constructor(configuration?: TokenAuthConfig) {
     super();
     if (!configuration) { return; }
 

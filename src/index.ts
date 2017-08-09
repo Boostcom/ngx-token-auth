@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenAuthInterceptorService } from './token-auth-interceptor.service';
 import { TokenStorageService } from './token-storage.service';
 import { TokenAuthConfigService } from './token-auth-config.service';
+import { TokenAuthConfig } from './token-auth-config.abstract';
 
 export * from './token-auth.service';
 export * from './token-auth-config.abstract';
@@ -17,13 +18,13 @@ export * from './token-auth-config.service';
   ],
 })
 export class TokenAuthModule {
-  static forRoot(tokenAuthConfigService: Provider): ModuleWithProviders {
+  static forRoot(tokenAuthConfig: Provider): ModuleWithProviders {
     return {
       ngModule: TokenAuthModule,
       providers: [
         TokenAuthService,
         TokenStorageService,
-        tokenAuthConfigService || { provide: TokenAuthConfigService, useClass: TokenAuthConfigService },
+        tokenAuthConfig || { provide: TokenAuthConfig, useClass: TokenAuthConfigService },
         { provide: HTTP_INTERCEPTORS, useClass: TokenAuthInterceptorService, multi: true }
       ]
     };

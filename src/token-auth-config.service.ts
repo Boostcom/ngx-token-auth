@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TokenAuthConfig } from './token-auth-config.abstract';
+import { TokenAuthConfig } from './token-auth-config';
 
 @Injectable()
-export class TokenAuthConfigService extends TokenAuthConfig {
-  constructor(configuration?: TokenAuthConfig) {
-    super();
-    if (!configuration) { return; }
-
-    Object.keys(configuration).forEach((paramKey) => this[paramKey] = configuration[paramKey]);
-  }
-}
+export class TokenAuthConfigService extends TokenAuthConfig { }

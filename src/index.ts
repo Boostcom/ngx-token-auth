@@ -7,8 +7,10 @@ import { TokenStorageService } from './token-storage.service';
 import { TokenAuthConfigService } from './token-auth-config.service';
 
 export * from './token-auth.service';
-export * from './token-auth-config.abstract';
+export * from './token-auth-config';
 export * from './token-auth-config.service';
+export * from './token-storage.service';
+export * from './token-auth-interceptor.service';
 
 export const TOKEN_SERVICE_PROVIDER = { provide: TokenAuthConfigService, useClass: TokenAuthConfigService };
 

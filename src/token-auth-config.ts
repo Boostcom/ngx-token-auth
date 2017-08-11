@@ -1,4 +1,4 @@
-export abstract class TokenAuthConfig {
+export class TokenAuthConfig {
   /**
    * Path used as host for redirection.
    * @type {string}
@@ -24,4 +24,10 @@ export abstract class TokenAuthConfig {
    * @type {string}
    */
   public oAuthType?: 'sameWindow' | 'newWindow' = 'sameWindow';
+
+  constructor(configuration?: TokenAuthConfig) {
+    if (!configuration) { return; }
+
+    Object.keys(configuration).forEach((paramKey) => this[paramKey] = configuration[paramKey]);
+  }
 }

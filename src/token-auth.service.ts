@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TokenStorageService } from './token-storage.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -6,14 +6,14 @@ import { ParamMap } from '@angular/router';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { TokenAuthConfig } from './token-auth-config.abstract';
+import { TokenAuthConfigService } from './token-auth-config.service';
 
 @Injectable()
 export class TokenAuthService {
   private currentUser: any;
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService,
-              private config: TokenAuthConfig) {}
+              private config: TokenAuthConfigService) {}
 
   /**
    * Sign in using login data

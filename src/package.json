@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Boostcom/ngx-token-auth/issues"
   },
-  "module": "ngx-token-auth.js",
+  "module": "index.js",
   "typings": "ngx-token-auth.d.ts",
   "peerDependencies": {
     "@angular/core": "^4.3.0",

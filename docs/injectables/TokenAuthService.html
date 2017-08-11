@@ -68,6 +68,22 @@
             
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/TokenAuthConfig.html" >TokenAuthConfig</a>
+                                </li>
+                        </ul>
+                    </li>
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -178,6 +194,22 @@
                    
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/TokenAuthConfig.html" >TokenAuthConfig</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -274,7 +306,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(http: HttpClient, tokenStorage: <a href="../injectables/TokenStorageService.html">TokenStorageService</a>, config: <a href="../injectables/TokenAuthConfigService.html">TokenAuthConfigService</a>)</code>
+                                    <code>constructor(http: HttpClient, tokenStorage: <a href="../injectables/TokenStorageService.html">TokenStorageService</a>, config: <a href="../classes/TokenAuthConfig.html">TokenAuthConfig</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -732,14 +764,14 @@ import { ParamMap } from &#x27;@angular/router&#x27;;
 import &#x27;rxjs/add/operator/do&#x27;;
 import &#x27;rxjs/add/operator/catch&#x27;;
 import &#x27;rxjs/add/observable/throw&#x27;;
-import { TokenAuthConfigService } from &#x27;./token-auth-config.service&#x27;;
+import { TokenAuthConfig } from &#x27;./token-auth-config.abstract&#x27;;
 
 @Injectable()
 export class TokenAuthService {
   private currentUser: any;
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService,
-              private config: TokenAuthConfigService) {}
+              private config: TokenAuthConfig) {}
 
   /**
    * Sign in using login data

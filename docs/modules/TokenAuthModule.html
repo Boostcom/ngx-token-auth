@@ -68,6 +68,22 @@
             
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/TokenAuthConfig.html" >TokenAuthConfig</a>
+                                </li>
+                        </ul>
+                    </li>
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -178,6 +194,22 @@
                    
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/TokenAuthConfig.html" >TokenAuthConfig</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -352,12 +384,14 @@
         <pre class="line-numbers"><code class="language-typescript">import { NgModule, ModuleWithProviders, Provider } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { TokenAuthService } from &#x27;./token-auth.service&#x27;;
-import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { HTTP_INTERCEPTORS, HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { TokenAuthInterceptorService } from &#x27;./token-auth-interceptor.service&#x27;;
 import { TokenStorageService } from &#x27;./token-storage.service&#x27;;
 import { TokenAuthConfigService } from &#x27;./token-auth-config.service&#x27;;
+import { TokenAuthConfig } from &#x27;./token-auth-config.abstract&#x27;;
 
 export * from &#x27;./token-auth.service&#x27;;
+export * from &#x27;./token-auth-config.abstract&#x27;;
 export * from &#x27;./token-auth-config.service&#x27;;
 
 @NgModule({
@@ -367,14 +401,14 @@ export * from &#x27;./token-auth-config.service&#x27;;
   ],
 })
 export class TokenAuthModule {
-  static forRoot(tokenAuthConfigService: Provider): ModuleWithProviders {
+  static forRoot(tokenAuthConfig: Provider): ModuleWithProviders {
     return {
       ngModule: TokenAuthModule,
       providers: [
         TokenAuthService,
-        TokenAuthInterceptorService,
         TokenStorageService,
-        tokenAuthConfigService || { provide: TokenAuthConfigService, useClass: TokenAuthConfigService }
+        tokenAuthConfig || { provide: TokenAuthConfig, useClass: TokenAuthConfigService },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenAuthInterceptorService, multi: true }
       ]
     };
   }

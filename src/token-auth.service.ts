@@ -63,14 +63,14 @@ export class TokenAuthService {
   }
 
   /**
-   * Sign out current user
+   * Sign out current user.
+   * Local session will be purge even if backend won't return 200.
    * @returns {Observable<any>}
    */
   public signOut(): Observable<any> {
-    this.tokenStorage.purge();
-    this.currentUser = null;
-
-    return this.http.delete(`${this.config.apiHost}/${this.config.signOutPath}`);
+    return this.http
+      .delete(`${this.config.apiHost}/${this.config.signOutPath}`)
+      .do(() => this.purgeSession(), () => this.purgeSession());
   }
 
   /**
@@ -105,5 +105,10 @@ export class TokenAuthService {
     return `${this.config.oAuthBase}/${this.config.oAuthApiPath}/${provider}`
       + `?omniauth_window_type=${this.config.oAuthType}`
       + `&auth_origin_url=${encodeURIComponent(this.config.oAuthCallbackUrl)}`;
+  }
+
+  private purgeSession() {
+    this.tokenStorage.purge();
+    this.currentUser = null;
   }
 }

@@ -15,7 +15,10 @@ export class TokenAuthInterceptorService implements HttpInterceptor {
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authHeaders = this.authTokenStorage.getCurrentAuthHeaders();
 
-    if (this.config.debugMode) { console.log('[AUTH] Current data', authHeaders); }
+    if (this.config.debugMode) {
+      console.log(`[AUTH] ${req.url}`);
+      console.log('[AUTH] Current data', authHeaders);
+    }
 
     if (!authHeaders) { return next.handle(req); }
 
@@ -29,7 +32,10 @@ export class TokenAuthInterceptorService implements HttpInterceptor {
     if (!event.hasOwnProperty('headers')) { return; }
 
     const responseHeaders = <HttpHeaders> event['headers'];
-    if (!responseHeaders.has('access-token')) { return; }
+    if (!responseHeaders.has('access-token')) {
+      if (this.config.debugMode) { console.log('[AUTH] No access-token header!'); }
+      return;
+    }
 
     const authData: AuthData = {};
     TokenStorageService.AUTH_KEYS.forEach((key) => {

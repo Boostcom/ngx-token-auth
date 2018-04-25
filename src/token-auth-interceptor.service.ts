@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthData, TokenStorageService } from './token-storage.service';
+import { TokenAuthConfigService } from './token-auth-config.service';
 import 'rxjs/add/operator/do'
 
 @Injectable()
 export class TokenAuthInterceptorService implements HttpInterceptor {
 
-  constructor(private authTokenStorage: TokenStorageService) {}
+  constructor(private authTokenStorage: TokenStorageService, private config: TokenAuthConfigService) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authHeaders = this.authTokenStorage.getCurrentAuthHeaders();
@@ -30,7 +31,12 @@ export class TokenAuthInterceptorService implements HttpInterceptor {
       authData[key] = responseHeaders.get(TokenStorageService.AUTH_HEADERS_MAPPING[key] || key);
     });
 
+    if (this.config.debugMode) { console.log('[AUTH] New data', authData); }
+
     if (!this.authTokenStorage.isAuthDataValid(authData)) { return; }
+
+    if (this.config.debugMode) { console.log('[AUTH] Successfully passed checks!') }
+
     this.authTokenStorage.loadAuthData(authData);
   }
 }

@@ -24,6 +24,7 @@ export class TokenAuthConfig {
    * @type {string}
    */
   public oAuthType?: 'sameWindow' | 'newWindow' = 'sameWindow';
+  public debugMode? = false;
 
   constructor(configuration?: TokenAuthConfig) {
     if (!configuration) { return; }

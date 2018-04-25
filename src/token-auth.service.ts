@@ -59,6 +59,7 @@ export class TokenAuthService {
    * Initiate sign in using OAuth provider
    */
   public signInWithOAuth(provider: string): void {
+    this.purgeSession();
     window.location.href = this.oAuthPathBuilder(provider);
   }
 
@@ -81,7 +82,10 @@ export class TokenAuthService {
     return this.http.get(`${this.config.apiHost}/${this.config.validateTokenPath}`)
       .do((json) => this.currentUser = json['data'])
       .catch((error: HttpErrorResponse) => {
-        if (error.status === 401) { this.signOut(); }
+        if (error.status === 401) {
+          this.purgeSession();
+          this.signOut();
+        }
 
         return Observable.throw(error);
       })

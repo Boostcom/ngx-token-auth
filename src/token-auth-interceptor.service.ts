@@ -8,10 +8,15 @@ import 'rxjs/add/operator/do'
 @Injectable()
 export class TokenAuthInterceptorService implements HttpInterceptor {
 
-  constructor(private authTokenStorage: TokenStorageService, private config: TokenAuthConfigService) {}
+  constructor(private authTokenStorage: TokenStorageService, private config: TokenAuthConfigService) {
+    if (this.config.debugMode) { console.log('[AUTH] Starting interceptor'); }
+  }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authHeaders = this.authTokenStorage.getCurrentAuthHeaders();
+
+    if (this.config.debugMode) { console.log('[AUTH] Current data', authHeaders); }
+
     if (!authHeaders) { return next.handle(req); }
 
     const authReq = req.clone({ setHeaders: authHeaders });

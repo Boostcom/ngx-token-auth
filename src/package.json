@@ -1,6 +1,6 @@
 {
   "name": "ngx-token-auth",
-  "version": "0.1.17",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Boostcom/ngx-token-auth"
@@ -21,8 +21,8 @@
   "jsnext:main": "ngx-token-auth.js",
   "typings": "ngx-token-auth.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.3.0",
-    "rxjs": "^5.1.0",
+    "@angular/core": ">=4.3.0",
+    "rxjs": ">=6.1.0",
     "zone.js": "^0.8.4"
   }
 }

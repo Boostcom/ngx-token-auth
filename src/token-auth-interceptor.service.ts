@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AuthData, TokenStorageService } from './token-storage.service';
 import { TokenAuthConfigService } from './token-auth-config.service';
-import 'rxjs/add/operator/do'
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class TokenAuthInterceptorService implements HttpInterceptor {
@@ -24,11 +24,13 @@ export class TokenAuthInterceptorService implements HttpInterceptor {
 
     const authReq = req.clone({ setHeaders: authHeaders });
 
-    return next.handle(authReq)
-      .do((event) => this.handleResponseEvent(event), (event) => this.handleResponseEvent(event));
+    return next.handle(authReq).pipe(
+      tap((event) => this.handleResponseEvent(event), (event) => this.handleResponseEvent(event))
+    );
   }
 
-  private handleResponseEvent(event: HttpEvent<any>) {
+  private handleResponseEvent(paramEvent: any) {
+    const event = <HttpEvent<any>> paramEvent;
     if (!event.hasOwnProperty('headers')) { return; }
 
     const responseHeaders = <HttpHeaders> event['headers'];

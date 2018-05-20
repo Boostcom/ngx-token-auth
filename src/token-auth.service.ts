@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { TokenStorageService } from './token-storage.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable, throwError } from 'rxjs';
 import { ParamMap } from '@angular/router';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 import { TokenAuthConfigService } from './token-auth-config.service';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class TokenAuthService {
@@ -70,8 +68,9 @@ export class TokenAuthService {
    */
   public signOut(): Observable<any> {
     return this.http
-      .delete(`${this.config.apiHost}/${this.config.signOutPath}`)
-      .do(() => this.purgeSession(), () => this.purgeSession());
+      .delete(`${this.config.apiHost}/${this.config.signOutPath}`).pipe(
+        tap(() => this.purgeSession(), () => this.purgeSession())
+      );
   }
 
   /**
@@ -79,16 +78,17 @@ export class TokenAuthService {
    * @returns {Observable<any>}
    */
   public validateToken(): Observable<any> {
-    return this.http.get(`${this.config.apiHost}/${this.config.validateTokenPath}`)
-      .do((json) => this.currentUser = json['data'])
-      .catch((error: HttpErrorResponse) => {
+    return this.http.get(`${this.config.apiHost}/${this.config.validateTokenPath}`).pipe(
+      tap((json) => this.currentUser = json['data']),
+      catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           this.purgeSession();
           this.signOut();
         }
 
-        return Observable.throw(error);
+        return throwError(error);
       })
+    )
   }
 
   /**

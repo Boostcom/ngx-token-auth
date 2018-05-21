@@ -52,7 +52,7 @@ export class TokenStorageService {
     if (!TokenStorageService.AUTH_KEYS.every((key) => authData[key] != null)) { return false; }
     if (this.authData == null) { return true; }
 
-    return authData.expiry >= this.authData.expiry;
+    return +authData.expiry >= +this.authData.expiry;
   }
 
   private loadAuthDataFromParam(authData: AuthData) {

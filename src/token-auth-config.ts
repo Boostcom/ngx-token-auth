@@ -25,6 +25,11 @@ export class TokenAuthConfig {
    */
   public oAuthType?: 'sameWindow' | 'newWindow' = 'sameWindow';
   public debugMode? = false;
+  /**
+   * Only if url in HttpInterceptor is matched, access tokens will be transfered and readed.
+   * @type {RegExp}
+   */
+  public urlsWithTokensRegex = /.*/;
 
   constructor(configuration?: TokenAuthConfig) {
     if (!configuration) { return; }

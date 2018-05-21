@@ -13,14 +13,15 @@ export class TokenAuthInterceptorService implements HttpInterceptor {
   }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const isUrlMatched = req.url.match(this.config.urlsWithTokensRegex);
     const authHeaders = this.authTokenStorage.getCurrentAuthHeaders();
 
     if (this.config.debugMode) {
-      console.log(`[AUTH] ${req.url}`);
+      console.log(`[AUTH] ${req.url}. Matched: ${!!isUrlMatched}`);
       console.log('[AUTH] Current data', authHeaders);
     }
 
-    if (!authHeaders) { return next.handle(req); }
+    if (!authHeaders || !isUrlMatched) { return next.handle(req); }
 
     const authReq = req.clone({ setHeaders: authHeaders });
 

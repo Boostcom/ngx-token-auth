@@ -81,7 +81,7 @@ export class TokenAuthService {
     return this.http.get(`${this.config.apiHost}/${this.config.validateTokenPath}`).pipe(
       tap((json) => this.currentUser = json['data']),
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
+        if (error.status === 401 && this.config.signOutOnTokenValidationFail) {
           this.purgeSession();
           this.signOut();
         }

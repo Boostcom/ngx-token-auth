@@ -31,11 +31,6 @@ export class TokenAuthConfig {
    * @type {RegExp}
    */
   public urlsWithTokensRegex = /.*/;
-  /**
-   * If true, provides HTTP Interceptor automatically.
-   * @type {boolean}
-   */
-  public automaticallyProvideInterceptor ? = true;
 
   constructor(configuration?: TokenAuthConfig) {
     if (!configuration) { return; }

@@ -28,17 +28,13 @@ export const CUSTOM_HTTP_INTERCEPTOR = {
 })
 export class TokenAuthModule {
   static forRoot(tokenAuthConfig: Provider): ModuleWithProviders {
-    const config = <any> tokenAuthConfig || TOKEN_SERVICE_PROVIDER;
-    const httpInterceptors = [];
-    if (config.automaticallyProvideInterceptor) { httpInterceptors.push(CUSTOM_HTTP_INTERCEPTOR); }
-
     return {
       ngModule: TokenAuthModule,
       providers: [
         TokenAuthService,
         TokenStorageService,
-        config,
-        ...httpInterceptors,
+        tokenAuthConfig || TOKEN_SERVICE_PROVIDER,
+        CUSTOM_HTTP_INTERCEPTOR
       ]
     };
   }
